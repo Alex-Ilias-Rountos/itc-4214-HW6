@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colours</title>
+</head>
+
+
+<body>
+    <p style="text-align: center">Choose a colour.</p>
+
+
+    <div id="mypalette" class="wrapper" style="text-align: center">
+        
+        <div id="blue" style="display: inline-block; cursor: pointer; width: 30px; height: 30px; background-color: deepskyblue;" onClick="PrintColouredText('deepskyblue')"></div>
+        <div id="red" style="display: inline-block; cursor: pointer; width: 30px; height: 30px; background-color: firebrick;" onClick="PrintColouredText('firebrick')"></div>
+        <div id="indigo" style="display: inline-block; cursor: pointer; width: 30px; height: 30px; background-color: indigo;" onClick="PrintColouredText('indigo')"></div>
+        <div id="grey" style="display: inline-block; cursor: pointer; width: 30px; height: 30px; background-color: silver;" onClick="PrintColouredText('silver')"></div>
+        <div id="green" style="display: inline-block; cursor: pointer; width: 30px; height: 30px; background-color: darkgreen;" onClick="PrintColouredText('darkgreen')"></div>
+        <div id="purple" style="display: inline-block; cursor: pointer; width: 30px; height: 30px; background-color: blueviolet;" onClick="PrintColouredText('blueviolet')"></div>
+
+    </div>
+
+
+    <h2 id="colouredtext"style="text-align: center"></h2>   
+
+
+    <p style="text-align: center">Colour History</p>
+
+    <p id="history" style="text-align: center; margin-top: 20px; border: 1px solid black;overflow-y:scroll;"></p>
+
+</body>
+
+<script>
+
+const history = [];
+
+function PrintColouredText(y){
+
+    document.getElementById("colouredtext").textContent="Hello World!"
+    document.getElementById("colouredtext").style.color=y 
+    spaced = " "+y                                              //the history elements got a bit too close for post-covid standards
+    history.push(spaced)
+    
+    document.getElementById("history").innerHTML = ""           //clears the preexisting colours. Arrays are ordered so the newest colour is always
+    document.getElementById("history").innerHTML = history      //at the tail of the array. (Also by chance fits with left to right western writing order.)
+}
+
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2 style="text-align: center">A page that calculates primes less than an input.</h2>
+
+        <p style="text-align: center">Press the button to start.</p>
+
+        <div class="wrapper" style="text-align: center"> 
+            <button type="button" style="text-align: center" onclick="findprimes()">Calculate primes.</button>
+        </div>
+
+        <div id="list" style="text-align: center; margin-top: 20px; border: 1px solid black;overflow-y:scroll;"></div>
+
+        <script>
+
+
+        function PrimeCheck(y){
+
+            var sqrtnum=Math.floor(Math.sqrt(y));
+            for (var i = 2; i <= sqrtnum; i++) {
+                if (y % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+            
+        function findprimes() {
+            document.getElementById("list").innerHTML = ""          //$ does not work as it is not native to js     //clears the previous list for multiple ues without reload
+            var x = parseInt(prompt("Enter a Value", "0"), 10);     //base 10 int
+            const numbers = [];
+            
+            if (x > 2){
+                for(let j = x; j >= 3; j--) {
+                    if(PrimeCheck(j)){
+                        numbers.push(j)
+                    }
+                 }
+
+        
+                }
+  
+            document.getElementById("list").innerHTML = numbers
+        }
+
+        </script>
+
+    </body>
+</html>

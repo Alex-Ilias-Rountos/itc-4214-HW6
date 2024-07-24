@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2 style="text-align: center">A page that holds a list of names.</h2>
+
+        <p style="text-align: center">Write a name and press the button to add it to the lsit.</p>
+
+        <div class="wrapper" style="text-align: center"> 
+            <input type="text" id="namefield" placeholder="Ilias R.">
+            <button type="button" style="text-align: center" onclick="addname()">Add</button>
+        </div>
+
+        <div id="namelist" style="text-align: center; margin-top: 20px; border: 1px solid black;overflow-y:scroll;"></div>
+
+    </body>
+
+<script>
+
+const namearray = [];
+
+function addname(){
+
+    const newname = document.getElementById("namefield").value;
+
+     
+    spaced = " "+newname                                              //the array elements got a bit too close for post-covid standards
+    namearray.push(spaced)
+    namearray.sort()
+    
+    document.getElementById("namelist").innerHTML = ""               //clears the preexisting names. Arrays are ordered so the newest colour is always
+    document.getElementById("namelist").innerHTML = namearray      //at the tail of the array. (Also by chance fits with left to right western writing order.)
+}
+
+</script>
+
+</html>
